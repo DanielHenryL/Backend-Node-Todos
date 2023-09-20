@@ -19,12 +19,11 @@ export const getTodo = ( req:Request, res:Response ) => {
 
 
 export const postTodo = ( req:Request, res:Response ) => {
-    const data = req.body;
-    if( data.description.length <= 1 ) return;
-    data.done = false;
+    const todo = req.body;
+    todo.done = false;
     res.json({
         msg:'postTodo',
-        data
+        todo
     })
 }
 export const putTodo = ( req:Request, res:Response ) => {
