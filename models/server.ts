@@ -3,6 +3,7 @@ dotenv.config();
 import express, {Application} from 'express';
 import cors from 'cors';
 import todoRoutes from '../routes/todo'
+import { dbConnetion } from '../db/connection';
 interface Path {
     todos:string
 }
@@ -19,11 +20,16 @@ class Server{
         this.apiPath = {
             todos:'/api/todos'  
         }
-       
+       // Conexion bd
+        this.conectarDB();
         // middleware de la aplicacion
         this.middleware();
         // Rutas de mi aplicacion
         this.routes();
+    }
+
+    async conectarDB(){
+        await dbConnetion();
     }
 
     middleware(){

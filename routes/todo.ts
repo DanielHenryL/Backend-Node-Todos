@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { getTodos, getTodo, postTodo, putTodo, deleteTodo } from '../controllers/todo';
-import { query, body } from 'express-validator';
+import { body } from 'express-validator';
 import { validarCampos } from '../middleware/validar-campo';
 const router = Router();
 
